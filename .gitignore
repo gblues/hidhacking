@@ -1,0 +1,9 @@
+build/
+**/*.elf
+**/*.elf.last
+**/*.rpx
+**/*.o
+**/*.depend
+**/*.wuhb
+.bash_history
+.local/
