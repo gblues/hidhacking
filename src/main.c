@@ -27,22 +27,16 @@ int main(int argc, char **argv)
    WHBLogPrintf("HID Hacking!");
    WHBLogConsoleDraw();
 
-   uhs_fd = IOS_Open("/dev/uhs/0", IOS_OPEN_READWRITE);
-   if(uhs_fd >= 0) {
-      WHBLogPrintf("Successfully opened /dev/uhs/0\n");
-      handle->handle = uhs_fd;
-   }
-
    result = UhsClientOpen(handle, config);
    switch(result) {
       case UHS_STATUS_OK:
-         WHBLogPrintf("Successfully opened UHS client!");
+         WHBLogPrintf("Successfully opened UHS client!\n");
          break;
       case UHS_STATUS_HANDLE_INVALID_ARGS:
-         WHBLogPrintf("UHS failed: invalid arguments");
+         WHBLogPrintf("UHS failed: invalid arguments\n");
          break;
       case UHS_STATUS_HANDLE_INVALID_STATE:
-         WHBLogPrintf("UHS failed: invalid state");
+         WHBLogPrintf("UHS failed: invalid state\n");
          break;
    }
    WHBLogConsoleDraw();
@@ -75,7 +69,7 @@ void init_uhs_config(UhsConfig *config) {
    void *buffer = NULL;
    uint32_t size = 0;
 
-   init_cachealigned_buffer(1024, &buffer, &size);
+   init_cachealigned_buffer(5120, &buffer, &size);
    config->buffer = buffer;
    config->buffer_size = size;
 }
