@@ -7,3 +7,5 @@ build/
 **/*.wuhb
 .bash_history
 .local/
+cmake-build-debug/
+.idea/
